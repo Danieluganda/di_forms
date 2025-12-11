@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Select Partner Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; background:#f7f7f7 }
+    .card{ max-width:640px;margin:0 auto;background:white;padding:24px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    label{display:block;margin-bottom:8px;font-weight:600}
+    select,input[type=button]{padding:10px 12px;font-size:14px}
+    .row{display:flex;gap:8px;margin-top:12px}
+    .note{font-size:12px;color:#666;margin-top:12px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Select Partner Consent Form</h2>
+    <p>Choose a partner below and open their consent form.</p>
+
+    <label for="partner">Partner</label>
+    <select id="partner">
+      <option value="forms/outbox.html">Outbox Uganda</option>
+      <option value="forms/refactory.html">Refactory</option>
+      <option value="forms/witu.html">Women in Technology Uganda (WITU)</option>
+    </select>
+
+    <div class="row">
+      <input type="button" value="Open Form" id="openBtn">
+      <input type="button" value="Open in New Tab" id="openNewBtn">
+    </div>
+
+    <p class="note">Notes: Forms are static HTML files under <code>forms/</code>. Use the browser's back button to return here.</p>
+  </div>
+
+  <script>
+    const partnerEl = document.getElementById('partner');
+    document.getElementById('openBtn').addEventListener('click', () => {
+      const path = partnerEl.value;
+      window.location.href = path;
+    });
+    document.getElementById('openNewBtn').addEventListener('click', () => {
+      const path = partnerEl.value;
+      window.open(path, '_blank');
+    });
+  </script>
+</body>
+</html>
